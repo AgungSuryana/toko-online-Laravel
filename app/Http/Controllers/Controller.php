@@ -11,8 +11,23 @@ class Controller extends BaseController
     use AuthorizesRequests, ValidatesRequests;
 
     public function index(){
-        return view('pelanggan.layouts.index',[
+        return view('pelanggan.page.home',[
             'title'     =>'Home'
+        ]);
+    }
+    public function shop(){
+        return view('pelanggan.page.shop',[
+            'title'     =>'Shop'
+        ]);
+    }
+    public function transaksi(){
+        return view('pelanggan.page.transaksi',[
+            'title'     =>'transaksi'
+        ]);
+    }
+    public function contact(){
+        return view('pelanggan.page.contact',[
+            'title'     =>'Contact us'
         ]);
     }
 }

@@ -13,3 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [App\Http\Controllers\Controller::class, 'index'])->name('Home');
+Route::get('/shop', [App\Http\Controllers\Controller::class, 'shop'])->name('shop');
+Route::get('/transaksi', [App\Http\Controllers\Controller::class, 'transaksi'])->name('transaksi');
+Route::get('/contact', [App\Http\Controllers\Controller::class, 'contact'])->name('contact');
