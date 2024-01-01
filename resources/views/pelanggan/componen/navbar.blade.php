@@ -26,7 +26,10 @@
                     </a>
                     <div class="circle">10</div>
                 </div>
-                <button class="btn btn-success" type="button">login | Register</button>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Login | Register</button>
+                </li>
             </div>
         </div>
     </div>
