@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransaksiAdminController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\shopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,15 +18,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', [TransaksiController::class, 'index'])->name('home');
 Route::POST('/addTocart', [TransaksiController::class, 'addTocart'])->name('addTocart');
+Route::POST('/tambah', [shopController::class, 'tambah'])->name('tambah');
 Route::POST('/storePelanggan', [UserController::class, 'storePelanggan'])->name('storePelanggan');
 Route::POST('/login_pelanggan', [UserController::class, 'loginProses'])->name('loginproses.pelanggan');
 Route::GET('/logout_pelanggan', [UserController::class, 'logout'])->name('logout.pelanggan');
 
 Route::get('/shop', [Controller::class, 'shop'])->name('shop');
 Route::get('/transaksi', [Controller::class, 'transaksi'])->name('transaksi');
-Route::get('/contact', [Controller::class, 'contact'])->name('contact');
 
 Route::get('/checkout', [Controller::class, 'checkout'])->name('checkout');
 Route::POST('/checkout/proses/{id}', [Controller::class, 'prosesCheckout'])->name('checkout.product');
@@ -33,7 +40,7 @@ Route::get('/admin', [Controller::class, 'login'])->name('login');
 Route::POST('/admin/loginProses', [Controller::class, 'loginProses'])->name('loginProses');
 
 
-Route::group(['middleware' => 'admin'], function () {
+Route::group(['middleware' => 'admin'], function(){
     Route::get('/admin/dashboard', [Controller::class, 'admin'])->name('admin');
     Route::get('/admin/product', [ProductController::class, 'index'])->name('product');
     Route::get('/admin/logout', [Controller::class, 'logout'])->name('logout');
@@ -41,7 +48,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/addModal', [ProductController::class, 'addModal'])->name('addModal');
 
     Route::GET('/admin/user_management', [UserController::class, 'index'])->name('userManagement');
+
     Route::GET('/admin/user_management/addModalUser', [UserController::class, 'addModalUser'])->name('addModalUser');
+    Route::GET('/addModalUser', [UserController::class, 'addModalUser'])->name('addModalUser');
+
     Route::POST('/admin/user_management/addData', [UserController::class, 'store'])->name('addDataUser');
     Route::get('/admin/user_management/editUser/{id}', [UserController::class, 'show'])->name('showDataUser');
     Route::PUT('/admin/user_management/updateDataUser/{id}', [UserController::class, 'update'])->name('updateDataUSer');

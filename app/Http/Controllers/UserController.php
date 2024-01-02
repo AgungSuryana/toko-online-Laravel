@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
+
 class UserController extends Controller
 {
     public function index()
@@ -20,7 +21,7 @@ class UserController extends Controller
             'data'      => $data,
         ]);
     }
-
+  
     public function addModalUser()
     {
         return view('admin.modal.modalUser', [
@@ -28,6 +29,7 @@ class UserController extends Controller
             'nik'   => date('Ymd') . rand(000, 999),
         ]);
     }
+    
     public function store(UserRequest $request)
     {
         $data = new User;

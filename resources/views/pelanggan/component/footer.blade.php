@@ -1,11 +1,12 @@
 <div class="d-flex justify-content-between gap-5 pt-4 mt-5">
     <div class="title-left w-25">
         <div class="header-title fs-4 mb-2 font-weight-bolder">
-            TOKO ONLINE KITA
+            LaZaDi
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus repudiandae optio a illo
-            accusantium deserunt officiis distinctio suscipit ut eveniet, deleniti non aut eaque, ipsum
-            quaerat, natus nisi asperiores amet.</p>
+        <p>
+            LaZaDi adalah platform e-commerce yang menyediakan berbagai produk dengan kenyamanan berbelanja secara
+            online. Dengan fokus pada pengalaman pelanggan, LaZaDi memberikan akses mudah dan cepat ke berbagai produk
+            berkualitas dari berbagai kategori.</p>
     </div>
     <div class="title-middle w-25">
         <div class="header-title fs-4 mb-2 font-weight-bolder">
@@ -14,16 +15,12 @@
         <ul class="list-unstyled">
             <li>
                 <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam dignissimos quasi
-                    nobis autem explicabo! Voluptas!
+                    Kami adalah platform e-commerce yang menawarkan pengalaman belanja online yang luar biasa. Dengan
+                    komitmen untuk memberikan layanan terbaik kepada pelanggan kami, LaZaDi menyediakan akses mudah dan
+                    cepat ke berbagai produk berkualitas tinggi dari berbagai kategori.
                 </p>
             </li>
-            <li>
-                <p>091231231232</p>
-            </li>
-            <li>
-                p2312321312313
-            </li>
+
         </ul>
     </div>
     <div class="title-sosmed w-30">
@@ -39,5 +36,5 @@
     </div>
 </div>
 <div class="text-center p-lg-4 mt-3">
-    Copy right @ StudyKuy 2023</i>
+    Copy right @ 152022224-Agung Suryana | 152022259-Mohammad Nurendi</i>
 </div>
