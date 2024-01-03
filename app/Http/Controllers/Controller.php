@@ -102,37 +102,37 @@ class Controller extends BaseController
         return redirect()->route('checkout');
     }
 
-    public function prosesPembayaran(Request $request)
-    {
-        $data = $request->all();
-        $dbTransaksi = new transaksi();
-        // dd($data);die;
+    // public function prosesPembayaran(Request $request)
+    // {
+    //     $data = $request->all();
+    //     $dbTransaksi = new transaksi();
+    //     // dd($data);die;
 
-        $dbTransaksi->code_transaksi    = $data['code'];
-        $dbTransaksi->total_qty         = $data['totalQty'];
-        $dbTransaksi->total_harga       = $data['dibayarkan'];
-        $dbTransaksi->nama_customer     = $data['namaPenerima'];
-        $dbTransaksi->alamat            = $data['alamatPenerima'];
-        $dbTransaksi->no_tlp            = $data['tlp'];
-        $dbTransaksi->ekspedisi         = $data['ekspedisi'];
+    //     $dbTransaksi->code_transaksi    = $data['code'];
+    //     $dbTransaksi->total_qty         = $data['totalQty'];
+    //     $dbTransaksi->total_harga       = $data['dibayarkan'];
+    //     $dbTransaksi->nama_customer     = $data['namaPenerima'];
+    //     $dbTransaksi->alamat            = $data['alamatPenerima'];
+    //     $dbTransaksi->no_tlp            = $data['tlp'];
+    //     $dbTransaksi->ekspedisi         = $data['ekspedisi'];
 
-        $dbTransaksi->save();
+    //     $dbTransaksi->save();
 
-        $dataCart = modelDetailTransaksi::where('id_transaksi', $data['code'])->get();
-        foreach ($dataCart as $x) {
-            $dataUp = modelDetailTransaksi::where('id', $x->id)->first();
-            $dataUp->status    = 1;
-            $dataUp->save();
+    //     $dataCart = modelDetailTransaksi::where('id_transaksi', $data['code'])->get();
+    //     foreach ($dataCart as $x) {
+    //         $dataUp = modelDetailTransaksi::where('id', $x->id)->first();
+    //         $dataUp->status    = 1;
+    //         $dataUp->save();
 
-            $idProduct = product::where('id', $x->id_barang)->first();
-            $idProduct->quantity = $idProduct->quantity - $x->qty;
-            $idProduct->quantity_out = $x->qty;
-            $idProduct->save();
-        }
+    //         $idProduct = product::where('id', $x->id_barang)->first();
+    //         $idProduct->quantity = $idProduct->quantity - $x->qty;
+    //         $idProduct->quantity_out = $x->qty;
+    //         $idProduct->save();
+    //     }
 
-        Alert::alert()->success('Transaksi berhasil', 'Ditunggu barangnya');
-        return redirect()->route('home');
-    }
+    //     Alert::alert()->success('Transaksi berhasil', 'Ditunggu barangnya');
+    //     return redirect()->route('home');
+    // }
 
     public function keranjang()
     {
