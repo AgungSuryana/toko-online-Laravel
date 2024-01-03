@@ -21,7 +21,7 @@ class UserController extends Controller
             'data'      => $data,
         ]);
     }
-  
+
     public function addModalUser()
     {
         return view('admin.modal.modalUser', [

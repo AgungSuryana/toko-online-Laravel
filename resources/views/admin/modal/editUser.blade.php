@@ -20,42 +20,27 @@
                     <div class="mb-3 row">
                         <label for="name" class="col-sm-5 col-form-label">Nama Karyawan</label>
                         <div class="col-sm-7">
-<<<<<<< HEAD
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                                 name="nama" autocomplete="off" value="{{$data->name}}">
                             @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
-=======
-                            <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                id="name" name="nama" autocomplete="off" value="{{$data->name}}">
-                            @error('name')
-                                <div class="alert alert-danger">{{ $message }}</div>
->>>>>>> fc1128c30a5bcb71430f1d247c3c8d94d332bdcd
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="email" class="col-sm-5 col-form-label">Email Karyawan</label>
                         <div class="col-sm-7">
-<<<<<<< HEAD
+
                             <input type="email" class="form-control" id="email" name="email" autocomplete="off"
                                 value="{{$data->email}}">
-=======
-                            <input type="email" class="form-control" id="email" name="email" 
-                            autocomplete="off" value="{{$data->email}}">
->>>>>>> fc1128c30a5bcb71430f1d247c3c8d94d332bdcd
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="password" class="col-sm-5 col-form-label">Password Karyawan</label>
                         <div class="col-sm-7">
-<<<<<<< HEAD
                             <input type="password" class="form-control" id="password" name="password" autocomplete="off"
                                 value="{{password_needs_rehash($data->password,'PASSWORD_BCRYPT')}}">
-=======
-                            <input type="password" class="form-control" id="password" name="password"
-                                autocomplete="off" value="{{password_needs_rehash($data->password,'PASSWORD_BCRYPT')}}">
->>>>>>> fc1128c30a5bcb71430f1d247c3c8d94d332bdcd
+
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -73,12 +58,9 @@
                     <div class="mb-3 row">
                         <label for="tglLahir" class="col-sm-5 col-form-label">Tanggal lahir</label>
                         <div class="col-sm-7">
-<<<<<<< HEAD
                             <input type="date" class="form-control" id="tglLahir" name="tglLahir"
                                 value="{{$data->tglLahir}}">
-=======
-                            <input type="date" class="form-control" id="tglLahir" name="tglLahir" value="{{$data->tglLahir}}">
->>>>>>> fc1128c30a5bcb71430f1d247c3c8d94d332bdcd
+
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -87,11 +69,9 @@
                             <select type="text" class="form-control" id="role" name="role">
                                 <option value=""> Pilih Role </option>
                                 <option value="1" {{$data->role === 1 ? 'selected' : ''}}>Admin</option>
-<<<<<<< HEAD
+
                                 <option value="2" {{$data->role === 0 ? 'selected' : ''}}>User</option>
-=======
-                                <option value="2" {{$data->role === 0 ? 'selected' : ''}}>Manager</option>
->>>>>>> fc1128c30a5bcb71430f1d247c3c8d94d332bdcd
+
                             </select>
                         </div>
                     </div>
@@ -100,12 +80,8 @@
                         <label for="foto" class="col-sm-5 col-form-label">Foto Profil</label>
                         <div class="col-sm-7">
                             <input type="hidden" name="foto">
-<<<<<<< HEAD
                             <img class="mb-2 preview" style="width: 100px;"
                                 src="{{asset('storage/user/'.$data->foto)}}">
-=======
-                            <img class="mb-2 preview" style="width: 100px;" src="{{asset('storage/user/'.$data->foto)}}">
->>>>>>> fc1128c30a5bcb71430f1d247c3c8d94d332bdcd
                             <input type="file" class="form-control" accept=".png, .jpg, .jpeg" id="inputFoto"
                                 name="foto" onchange="previewImg()">
                         </div>
@@ -121,7 +97,7 @@
     </div>
 </div>
 <script>
-<<<<<<< HEAD
+
 function previewImg() {
     const fotoIn = document.querySelector('#inputFoto');
     const preview = document.querySelector('.preview');
@@ -135,19 +111,4 @@ function previewImg() {
         preview.src = oFREvent.target.result;
     }
 }
-=======
-    function previewImg() {
-        const fotoIn = document.querySelector('#inputFoto');
-        const preview = document.querySelector('.preview');
-
-        preview.style.display = 'block';
-
-        const oFReader = new FileReader();
-        oFReader.readAsDataURL(fotoIn.files[0]);
-
-        oFReader.onload = function(oFREvent) {
-            preview.src = oFREvent.target.result;
-        }
-    }
->>>>>>> fc1128c30a5bcb71430f1d247c3c8d94d332bdcd
 </script>
