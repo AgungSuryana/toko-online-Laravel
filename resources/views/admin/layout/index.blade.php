@@ -25,22 +25,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     @stack('style')
-<<<<<<< HEAD
+
     <title> LaZaDi| {{ $title }}</title>
-=======
+
     <title>Toko Online | {{ $title }}</title>
->>>>>>> fc1128c30a5bcb71430f1d247c3c8d94d332bdcd
+
 </head>
 
 <body>
     <main class="d-flex flex-row px-2">
         @include('admin.components.sidebar')
         <div style="margin-left: 280px; width:100%; margin-top:10px;">
-<<<<<<< HEAD
-
-=======
-            @include('admin.components.navbar')
->>>>>>> fc1128c30a5bcb71430f1d247c3c8d94d332bdcd
             <div class="mt-2">
                 <section>
                     <article>
@@ -63,8 +58,6 @@
 <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 @stack('scripts')
 
-<<<<<<< HEAD
+
 </html>
-=======
-</html>
->>>>>>> fc1128c30a5bcb71430f1d247c3c8d94d332bdcd
+
