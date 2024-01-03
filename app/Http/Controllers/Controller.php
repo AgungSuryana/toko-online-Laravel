@@ -146,41 +146,41 @@ class Controller extends BaseController
         ]);
     }
 
-    public function bayar($id)
-    {
-        $find_data = transaksi::find($id);
-        $countKeranjang = tblCart::where(['idUser' => 'guest123', 'status' => 0])->count();
-        \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
-        // Set sanitization on (default)
-        \Midtrans\Config::$isSanitized = true;
-        // Set 3DS transaction for credit card to true
-        \Midtrans\Config::$is3ds = true;
+    // public function bayar($id)
+    // {
+    //     $find_data = transaksi::find($id);
+    //     $countKeranjang = tblCart::where(['idUser' => 'guest123', 'status' => 0])->count();
+    //     \Midtrans\Config::$serverKey = config('midtrans.server_key');
+    //     // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+    //     \Midtrans\Config::$isProduction = false;
+    //     // Set sanitization on (default)
+    //     \Midtrans\Config::$isSanitized = true;
+    //     // Set 3DS transaction for credit card to true
+    //     \Midtrans\Config::$is3ds = true;
 
-        $params = array(
-            'transaction_details' => array(
-                'order_id' => $find_data->code_transaksi,
-                'gross_amount' => $find_data->total_harga,
-            ),
-            'customer_details' => array(
-                'first_name' => 'Mr',
-                'last_name' => $find_data->nama_customer,
-                // 'email' => 'budi.pra@example.com',
-                'phone' => $find_data->no_tlp,
-            ),
-        );
+    //     $params = array(
+    //         'transaction_details' => array(
+    //             'order_id' => $find_data->code_transaksi,
+    //             'gross_amount' => $find_data->total_harga,
+    //         ),
+    //         'customer_details' => array(
+    //             'first_name' => 'Mr',
+    //             'last_name' => $find_data->nama_customer,
+    //             // 'email' => 'budi.pra@example.com',
+    //             'phone' => $find_data->no_tlp,
+    //         ),
+    //     );
 
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-        // dd($snapToken);die;
-        return view('pelanggan.page.detailTransaksi', [
-            'name' => 'Detail Transaksi',
-            'title' => 'Detail Transaksi',
-            'count' => $countKeranjang,
-            'token' => $snapToken,
-            'data' => $find_data,
-        ]);
-    }
+    //     $snapToken = \Midtrans\Snap::getSnapToken($params);
+    //     // dd($snapToken);die;
+    //     return view('pelanggan.page.detailTransaksi', [
+    //         'name' => 'Detail Transaksi',
+    //         'title' => 'Detail Transaksi',
+    //         'count' => $countKeranjang,
+    //         'token' => $snapToken,
+    //         'data' => $find_data,
+    //     ]);
+    // }
 
     public function admin()
     {
