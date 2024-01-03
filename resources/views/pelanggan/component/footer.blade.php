@@ -24,16 +24,21 @@
         </ul>
     </div>
     <div class="title-sosmed w-30">
-        <div class="header-title fs-4 mb-2 font-weight-bolder">
+        <div class="header-title fs-4 mb-2 font-weight-bolder text-white">
             Sosial Media
         </div>
         <div class="sosmed d-flex gap-3">
-            <i class="fa-brands fa-instagram fa-2x"></i>
-            <i class="fa-brands fa-square-facebook fa-2x"></i>
-            <i class="fa-brands fa-whatsapp fa-2x"></i>
-            <i class="fa-brands fa-linkedin fa-2x"></i>
+            <a href="https://www.instagram.com" target="_blank" class="text-white"><i
+                    class="fa-brands fa-instagram fa-2x text-white"></i></a>
+            <a href="https://www.facebook.com" target="_blank" class="text-white"><i
+                    class="fa-brands fa-square-facebook fa-2x text-white"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=123456789" target="_blank" class="text-white"><i
+                    class="fa-brands fa-whatsapp fa-2x text-white"></i></a>
+            <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" class="text-white"><i
+                    class="fa-brands fa-linkedin fa-2x text-white"></i></a>
         </div>
     </div>
+</div>
 </div>
 <div class="text-center p-lg-4 mt-3">
     Copy right @ 152022224-Agung Suryana | 152022259-Mohammad Nurendi</i>

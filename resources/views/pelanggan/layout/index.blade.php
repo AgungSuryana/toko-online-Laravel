@@ -24,6 +24,7 @@
     <title>Toko Online | {{ $title }}</title>
 </head>
 
+
 <body>
     <main class="w-full">
         <header class="w-full">

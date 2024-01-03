@@ -20,6 +20,11 @@ main {
     color: white;
 } */
 
+.sosmed a:hover {
+    color: white;
+}
+
+
 .text-links {
     cursor: pointer;
 }

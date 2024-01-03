@@ -24,6 +24,11 @@ section {
     min-height: 100vh;
 }
 
+.sosmed a:hover {
+    color: white;
+}
+
+
 /*footer*/
 footer {
     position: static;
