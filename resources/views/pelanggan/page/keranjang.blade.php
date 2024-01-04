@@ -25,7 +25,7 @@
                         <td>{{ $item->code_transaksi }}</td>
                         <td>{{ $item->nama_customer }}</td>
                         <td>{{ $item->total_harga }}</td>
-                        <td>
+                        <td id="status-{{ $item->id }}">
                             @if ($item->status === 'Unpaid')
                             <span class="badge text-bg-danger">Unpaid</span>
                             @else
@@ -33,7 +33,10 @@
                             @endif
                         </td>
                         <td>
-                            <a href="" class="btn btn-success">Bayar</a>
+                            <a href="{{ route('keranjang.bayar', ['id' => $item->id]) }}"
+                                class="btn btn-success">Bayar</a>
+
+
                         </td>
                     </tr>
                     @endforeach
@@ -42,5 +45,8 @@
         </div>
     </div>
 </div>
+
+<script>
+
 
 @endsection

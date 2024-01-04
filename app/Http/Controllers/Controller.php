@@ -102,37 +102,37 @@ class Controller extends BaseController
         return redirect()->route('checkout');
     }
 
-    // public function prosesPembayaran(Request $request)
-    // {
-    //     $data = $request->all();
-    //     $dbTransaksi = new transaksi();
-    //     // dd($data);die;
+    public function prosesPembayaran(Request $request)
+    {
+        $data = $request->all();
+        $dbTransaksi = new transaksi();
+        // dd($data);die;
 
-    //     $dbTransaksi->code_transaksi    = $data['code'];
-    //     $dbTransaksi->total_qty         = $data['totalQty'];
-    //     $dbTransaksi->total_harga       = $data['dibayarkan'];
-    //     $dbTransaksi->nama_customer     = $data['namaPenerima'];
-    //     $dbTransaksi->alamat            = $data['alamatPenerima'];
-    //     $dbTransaksi->no_tlp            = $data['tlp'];
-    //     $dbTransaksi->ekspedisi         = $data['ekspedisi'];
+        $dbTransaksi->code_transaksi    = $data['code'];
+        $dbTransaksi->total_qty         = $data['totalQty'];
+        $dbTransaksi->total_harga       = $data['dibayarkan'];
+        $dbTransaksi->nama_customer     = $data['namaPenerima'];
+        $dbTransaksi->alamat            = $data['alamatPenerima'];
+        $dbTransaksi->no_tlp            = $data['tlp'];
+        $dbTransaksi->ekspedisi         = $data['ekspedisi'];
 
-    //     $dbTransaksi->save();
+        $dbTransaksi->save();
 
-    //     $dataCart = modelDetailTransaksi::where('id_transaksi', $data['code'])->get();
-    //     foreach ($dataCart as $x) {
-    //         $dataUp = modelDetailTransaksi::where('id', $x->id)->first();
-    //         $dataUp->status    = 1;
-    //         $dataUp->save();
+        $dataCart = modelDetailTransaksi::where('id_transaksi', $data['code'])->get();
+        foreach ($dataCart as $x) {
+            $dataUp = modelDetailTransaksi::where('id', $x->id)->first();
+            $dataUp->status    = 1;
+            $dataUp->save();
 
-    //         $idProduct = product::where('id', $x->id_barang)->first();
-    //         $idProduct->quantity = $idProduct->quantity - $x->qty;
-    //         $idProduct->quantity_out = $x->qty;
-    //         $idProduct->save();
-    //     }
+            $idProduct = product::where('id', $x->id_barang)->first();
+            $idProduct->quantity = $idProduct->quantity - $x->qty;
+            $idProduct->quantity_out = $x->qty;
+            $idProduct->save();
+        }
 
-    //     Alert::alert()->success('Transaksi berhasil', 'Ditunggu barangnya');
-    //     return redirect()->route('home');
-    // }
+        Alert::alert()->success('Transaksi berhasil', 'Ditunggu barangnya');
+        return redirect()->route('home');
+    }
 
     public function keranjang()
     {
@@ -145,42 +145,19 @@ class Controller extends BaseController
             'data'  => $all_trx
         ]);
     }
+    public function bayar($id)
+    {
+        $find_data = transaksi::find($id);
+    
+        // Set status menjadi 'Paid'
+        $find_data->status = 'Paid';
+        $find_data->save();
+    
+        Alert::success('Pembayaran Berhasil', 'Terima kasih atas pembayarannya!')->persistent(true, false);
 
-    // public function bayar($id)
-    // {
-    //     $find_data = transaksi::find($id);
-    //     $countKeranjang = tblCart::where(['idUser' => 'guest123', 'status' => 0])->count();
-    //     \Midtrans\Config::$serverKey = config('midtrans.server_key');
-    //     // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-    //     \Midtrans\Config::$isProduction = false;
-    //     // Set sanitization on (default)
-    //     \Midtrans\Config::$isSanitized = true;
-    //     // Set 3DS transaction for credit card to true
-    //     \Midtrans\Config::$is3ds = true;
-
-    //     $params = array(
-    //         'transaction_details' => array(
-    //             'order_id' => $find_data->code_transaksi,
-    //             'gross_amount' => $find_data->total_harga,
-    //         ),
-    //         'customer_details' => array(
-    //             'first_name' => 'Mr',
-    //             'last_name' => $find_data->nama_customer,
-    //             // 'email' => 'budi.pra@example.com',
-    //             'phone' => $find_data->no_tlp,
-    //         ),
-    //     );
-
-    //     $snapToken = \Midtrans\Snap::getSnapToken($params);
-    //     // dd($snapToken);die;
-    //     return view('pelanggan.page.detailTransaksi', [
-    //         'name' => 'Detail Transaksi',
-    //         'title' => 'Detail Transaksi',
-    //         'count' => $countKeranjang,
-    //         'token' => $snapToken,
-    //         'data' => $find_data,
-    //     ]);
-    // }
+        return back();
+    }
+    
 
     public function admin()
     {
